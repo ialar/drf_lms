@@ -1,0 +1,42 @@
+[
+{
+    "model": "materials.course",
+    "pk": 1,
+    "fields": {
+        "name": "Django",
+        "description": "Курс Django",
+        "preview": ""
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 2,
+    "fields": {
+        "name": "DRF",
+        "description": "Курс DRF",
+        "preview": ""
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 1,
+    "fields": {
+        "name": "1. Знакомство с Django",
+        "description": "Вводный урок",
+        "preview": "",
+        "video": "https://www.youtube.com/watch?v=L-FyeHQwo4U&list=PLDyJYA6aTY1nZ9fSGcsK4wqeu-xaJksQQ",
+        "course": 1
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 2,
+    "fields": {
+        "name": "1. Знакомство с DRF",
+        "description": "Введение",
+        "preview": "",
+        "video": "https://www.youtube.com/watch?v=i-uvtDKeFgE&list=PLA0M1Bcd0w8xZA3Kl1fYmOH_MfLpiYMRs",
+        "course": 2
+    }
+}
+]
