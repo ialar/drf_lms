@@ -1,0 +1,58 @@
+[
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "password": "",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-09-29T19:41:48.025Z",
+        "email": "ialar@bk.ru",
+        "phone": null,
+        "city": null,
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "date": "2024-09-29T19:58:41.657Z",
+        "paid_lesson": null,
+        "paid_course": null,
+        "amount": 1000,
+        "method": "переводом"
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "date": "2024-09-29T20:30:19.706Z",
+        "paid_lesson": 1,
+        "paid_course": null,
+        "amount": 1500,
+        "method": "наличными"
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 3,
+    "fields": {
+        "user": 1,
+        "date": "2024-09-29T20:33:05.137Z",
+        "paid_lesson": null,
+        "paid_course": 2,
+        "amount": 1500,
+        "method": "переводом"
+    }
+}
+]

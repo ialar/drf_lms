@@ -38,5 +38,16 @@
         "video": "https://www.youtube.com/watch?v=i-uvtDKeFgE&list=PLA0M1Bcd0w8xZA3Kl1fYmOH_MfLpiYMRs",
         "course": 2
     }
+},
+{
+    "model": "materials.lesson",
+    "pk": 3,
+    "fields": {
+        "name": "2. Django ORM",
+        "description": "Технология связи БД и отображения в Django",
+        "preview": "",
+        "video": "https://www.youtube.com/watch?v=3ylwel4dusg&list=PLIMfripGjqcN9xGTfK2u-wTRzR0VttNku",
+        "course": 1
+    }
 }
 ]
