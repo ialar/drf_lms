@@ -35,7 +35,7 @@ class User(AbstractUser):
 
 
 class Payment(models.Model):
-    user = models.ForeignKey('User', on_delete=models.CASCADE, verbose_name='Пользователь')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     date = models.DateTimeField(auto_now_add=True, verbose_name='Дата платежа')
     paid_lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, verbose_name='Оплаченный урок', **NULLABLE)
     paid_course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='Оплаченный курс', **NULLABLE)
