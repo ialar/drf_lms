@@ -5,7 +5,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
 from users.models import Payment, User
-from users.permissions import IsOwner, IsAdmin
+from users.permissions import IsAdmin, IsActualUser
 from users.serializers import PaymentSerializer, UserSerializer, UserSerializerReadOnly
 
 
@@ -45,7 +45,7 @@ class UserRetrieveAPIView(RetrieveAPIView):
 class UserUpdateAPIView(UpdateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (IsAuthenticated, IsOwner)
+    permission_classes = (IsAuthenticated, IsActualUser)
 
 
 class UserDeleteAPIView(DestroyAPIView):

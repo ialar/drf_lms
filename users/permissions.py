@@ -9,10 +9,19 @@ class IsModer(BasePermission):
 
 
 class IsOwner(BasePermission):
-    """Проверяет, является ли пользователь владельцем."""
+    """Проверяет, является ли пользователь владельцем объекта."""
 
     def has_object_permission(self, request, view, obj):
         if obj.owner == request.user:
+            return True
+        return False
+
+
+class IsActualUser(BasePermission):
+    """Проверяет, является ли пользователь владельцем аккаунта."""
+
+    def has_object_permission(self, request, view, obj):
+        if obj.email == request.user.email:
             return True
         return False
 
