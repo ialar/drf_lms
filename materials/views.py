@@ -49,7 +49,6 @@ class LessonRetrieveAPIView(RetrieveAPIView):
     permission_classes = (IsAuthenticated, IsModer | IsOwner)
 
 
-
 class LessonUpdateAPIView(UpdateAPIView):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
