@@ -7,12 +7,12 @@ class LessonSerializer(ModelSerializer):
 
     class Meta:
         model = Lesson
-        fields = '__all__'
+        fields = "__all__"
 
 
 class CourseSerializer(ModelSerializer):
     lessons_count = SerializerMethodField()
-    lessons = LessonSerializer(source='lesson_set', many=True, read_only=True)
+    lessons = LessonSerializer(source="lesson_set", many=True, read_only=True)
 
     @staticmethod
     def get_lessons_count(obj):
@@ -24,4 +24,4 @@ class CourseSerializer(ModelSerializer):
 
     class Meta:
         model = Course
-        fields = ('id', 'name', 'description', 'lessons_count', 'lessons')
+        fields = ("id", "name", "description", "lessons_count", "lessons")

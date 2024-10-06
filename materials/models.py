@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 NULLABLE = {"null": "True", "blank": "True"}
@@ -16,6 +17,12 @@ class Course(models.Model):
         upload_to="materials/course_image",
         verbose_name="Изображение курса",
         help_text="Загрузите изображение для курса",
+        **NULLABLE
+    )
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        verbose_name="Пользователь",
         **NULLABLE
     )
 
@@ -47,6 +54,12 @@ class Lesson(models.Model):
         on_delete=models.SET_NULL,
         verbose_name="Курс",
         help_text="Выберите курс",
+        **NULLABLE
+    )
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        verbose_name="Пользователь",
         **NULLABLE
     )
 

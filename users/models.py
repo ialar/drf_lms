@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-from materials.models import Lesson, Course
+from materials.models import Course, Lesson
 
 NULLABLE = {"null": "True", "blank": "True"}
 
@@ -23,7 +23,7 @@ class User(AbstractUser):
         upload_to="users/avatars",
         verbose_name="Аватар",
         help_text="Загрузите аву",
-        **NULLABLE
+        **NULLABLE,
     )
 
     USERNAME_FIELD = "email"
@@ -35,18 +35,28 @@ class User(AbstractUser):
 
 
 class Payment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
-    date = models.DateTimeField(auto_now_add=True, verbose_name='Дата платежа')
-    paid_lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, verbose_name='Оплаченный урок', **NULLABLE)
-    paid_course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='Оплаченный курс', **NULLABLE)
-    amount = models.PositiveIntegerField(verbose_name='сумма')
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, verbose_name="Пользователь"
+    )
+    date = models.DateTimeField(auto_now_add=True, verbose_name="Дата платежа")
+    paid_lesson = models.ForeignKey(
+        Lesson, on_delete=models.CASCADE, verbose_name="Оплаченный урок", **NULLABLE
+    )
+    paid_course = models.ForeignKey(
+        Course, on_delete=models.CASCADE, verbose_name="Оплаченный курс", **NULLABLE
+    )
+    amount = models.PositiveIntegerField(verbose_name="сумма")
     method_choices = {"наличными": "наличными", "переводом": "переводом"}
-    method = models.CharField(max_length=10, choices=method_choices, verbose_name='Способ оплаты')
+    method = models.CharField(
+        max_length=10, choices=method_choices, verbose_name="Способ оплаты"
+    )
 
     def __str__(self):
-        return (f'{self.date} - {self.amount} рублей {self.method} от {self.user} '
-                f'за {self.paid_course if self.paid_course else self.paid_lesson}')
+        return (
+            f"{self.date} - {self.amount} рублей {self.method} от {self.user} "
+            f"за {self.paid_course if self.paid_course else self.paid_lesson}"
+        )
 
     class Meta:
-        verbose_name = 'Платёж'
-        verbose_name_plural = 'Платежи'
+        verbose_name = "Платёж"
+        verbose_name_plural = "Платежи"
