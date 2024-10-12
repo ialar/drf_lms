@@ -1,17 +1,19 @@
-from rest_framework.serializers import ModelSerializer, SerializerMethodField
+from rest_framework import serializers
 
 from materials.models import Course, Lesson
+from materials.validators import validate_not_youtube
 
 
-class LessonSerializer(ModelSerializer):
+class LessonSerializer(serializers.ModelSerializer):
+    video = serializers.CharField(validators=[validate_not_youtube])
 
     class Meta:
         model = Lesson
         fields = "__all__"
 
 
-class CourseSerializer(ModelSerializer):
-    lessons_count = SerializerMethodField()
+class CourseSerializer(serializers.ModelSerializer):
+    lessons_count = serializers.SerializerMethodField()
     lessons = LessonSerializer(source="lesson_set", many=True, read_only=True)
 
     @staticmethod
