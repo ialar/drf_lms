@@ -60,3 +60,16 @@ class Payment(models.Model):
     class Meta:
         verbose_name = "Платёж"
         verbose_name_plural = "Платежи"
+
+
+class Subscription(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь', **NULLABLE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='Курс', **NULLABLE)
+
+    def __repr__(self):
+        return f"Подписка № {self.pk} пользователя {self.user} на курс {self.course}."
+
+    class Meta:
+        verbose_name = "Подписка"
+        verbose_name_plural = "Подписки"
+        ordering = ("pk", )
