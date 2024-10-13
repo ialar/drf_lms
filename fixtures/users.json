@@ -44,7 +44,7 @@
     "pk": 3,
     "fields": {
         "password": "pbkdf2_sha256$870000$zymo5P5UnMsNENvsJwq7xA$a0khK5TaurWrE8dkTMoUG5W7YLKusP8vaCJvzXiqeo4=",
-        "last_login": "2024-10-06T14:50:39.050Z",
+        "last_login": "2024-10-12T16:00:46.776Z",
         "is_superuser": true,
         "first_name": "",
         "last_name": "",
@@ -115,6 +115,14 @@
         "paid_course": 2,
         "amount": 1500,
         "method": "переводом"
+    }
+},
+{
+    "model": "users.subscription",
+    "pk": 2,
+    "fields": {
+        "user": 2,
+        "course": 4
     }
 }
 ]

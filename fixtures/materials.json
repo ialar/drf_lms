@@ -30,6 +30,16 @@
     }
 },
 {
+    "model": "materials.course",
+    "pk": 4,
+    "fields": {
+        "name": "Deploy",
+        "description": null,
+        "preview": "",
+        "owner": 2
+    }
+},
+{
     "model": "materials.lesson",
     "pk": 1,
     "fields": {
@@ -67,12 +77,12 @@
 },
 {
     "model": "materials.lesson",
-    "pk": 4,
+    "pk": 5,
     "fields": {
-        "name": "Шаблонизация",
+        "name": "test",
         "description": null,
         "preview": "",
-        "video": null,
+        "video": "https://www.youtube.com/",
         "course": null,
         "owner": 2
     }
