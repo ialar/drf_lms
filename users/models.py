@@ -50,6 +50,8 @@ class Payment(models.Model):
     method = models.CharField(
         max_length=10, choices=method_choices, verbose_name="Способ оплаты"
     )
+    session_id = models.CharField(max_length=255, verbose_name='ID сессии оплаты', **NULLABLE)
+    link = models.URLField(max_length=400, verbose_name='Ссылка на оплату', **NULLABLE)
 
     def __str__(self):
         return (
@@ -72,4 +74,4 @@ class Subscription(models.Model):
     class Meta:
         verbose_name = "Подписка"
         verbose_name_plural = "Подписки"
-        ordering = ("pk", )
+        ordering = ("pk",)
