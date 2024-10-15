@@ -44,7 +44,7 @@
     "pk": 3,
     "fields": {
         "password": "pbkdf2_sha256$870000$zymo5P5UnMsNENvsJwq7xA$a0khK5TaurWrE8dkTMoUG5W7YLKusP8vaCJvzXiqeo4=",
-        "last_login": "2024-10-12T16:00:46.776Z",
+        "last_login": "2024-10-15T17:57:31.927Z",
         "is_superuser": true,
         "first_name": "",
         "last_name": "",
@@ -82,6 +82,26 @@
     }
 },
 {
+    "model": "users.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$4F0zZALFx8zrqIPvocVMrC$tGhGy99CxSQROi/aKdAf31akbMy3gUffHnZAlaLx5Ew=",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-10-15T17:58:11.602Z",
+        "email": "new_student@bk.ru",
+        "phone": null,
+        "city": null,
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
     "model": "users.payment",
     "pk": 1,
     "fields": {
@@ -90,7 +110,9 @@
         "paid_lesson": null,
         "paid_course": null,
         "amount": 1000,
-        "method": "переводом"
+        "method": "переводом",
+        "session_id": null,
+        "link": null
     }
 },
 {
@@ -102,7 +124,9 @@
         "paid_lesson": 1,
         "paid_course": null,
         "amount": 1500,
-        "method": "наличными"
+        "method": "наличными",
+        "session_id": null,
+        "link": null
     }
 },
 {
@@ -114,7 +138,65 @@
         "paid_lesson": null,
         "paid_course": 2,
         "amount": 1500,
-        "method": "переводом"
+        "method": "переводом",
+        "session_id": null,
+        "link": null
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 4,
+    "fields": {
+        "user": 7,
+        "date": "2024-10-15T18:19:44.322Z",
+        "paid_lesson": null,
+        "paid_course": null,
+        "amount": 1000,
+        "method": "переводом",
+        "session_id": null,
+        "link": null
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 5,
+    "fields": {
+        "user": 7,
+        "date": "2024-10-15T18:20:40.791Z",
+        "paid_lesson": null,
+        "paid_course": null,
+        "amount": 1000,
+        "method": "переводом",
+        "session_id": null,
+        "link": null
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 6,
+    "fields": {
+        "user": 7,
+        "date": "2024-10-15T18:26:44.509Z",
+        "paid_lesson": null,
+        "paid_course": null,
+        "amount": 1000,
+        "method": "переводом",
+        "session_id": null,
+        "link": null
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 7,
+    "fields": {
+        "user": 7,
+        "date": "2024-10-15T18:49:44.275Z",
+        "paid_lesson": null,
+        "paid_course": null,
+        "amount": 1000,
+        "method": "переводом",
+        "session_id": "cs_test_a1vNvWRAiELkNZvQkwAei5dmprqfmPTG3GUQH15TeMGapxZq5DMiqSvNGh",
+        "link": "https://checkout.stripe.com/c/pay/cs_test_a1vNvWRAiELkNZvQkwAei5dmprqfmPTG3GUQH15TeMGapxZq5DMiqSvNGh#fidkdWxOYHwnPyd1blpxYHZxWjA0VEQ8R2JObHVidkJ1a2Y1U0RCaWJjf1B0c1FuR111blJpc29PRjRHNFBDVWhKZE5UTU9pTGZdSXNrVXJBdXA9dE0xdDBgdElyd01OX0AwNU9UbldxTGxLNTVyQXJ1M3Y3ZicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
     }
 },
 {

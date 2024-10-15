@@ -40,6 +40,16 @@
     }
 },
 {
+    "model": "materials.course",
+    "pk": 8,
+    "fields": {
+        "name": "JS",
+        "description": null,
+        "preview": "",
+        "owner": 7
+    }
+},
+{
     "model": "materials.lesson",
     "pk": 1,
     "fields": {
