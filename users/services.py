@@ -6,7 +6,7 @@ stripe.api_key = settings.STRIPE_API_KEY
 
 def create_stripe_product(instance):
     """Создание продукта в stripe."""
-    product_name = f"{instance.paid_course}" if instance.paid_course else instance.paid_lesson
+    product_name = f"{instance.paid_course.name}" if instance.paid_course else f"{instance.paid_lesson.name}"
     stripe_product = stripe.Product.create(name=f'{product_name}')
     return stripe_product.id
 
