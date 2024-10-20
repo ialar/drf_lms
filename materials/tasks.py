@@ -8,6 +8,7 @@ from users.models import Subscription
 
 @shared_task
 def send_email_about_update(course_id):
+    """Отправляет письма подписчикам при обновлении курса."""
     print("Отправка писем подписчикам ...")
     course = Course.objects.get(pk=course_id)
     updates = Subscription.objects.filter(course=course_id)
