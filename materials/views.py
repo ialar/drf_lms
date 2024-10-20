@@ -11,6 +11,7 @@ from materials.paginators import CustomPagination
 from materials.serializers import CourseSerializer, LessonSerializer, SubscriptionSerializer
 from users.models import Subscription
 from users.permissions import IsModer, IsOwner
+from materials.tasks import send_email_about_update
 
 
 class CourseViewSet(ModelViewSet):
@@ -30,6 +31,11 @@ class CourseViewSet(ModelViewSet):
         elif self.action == "destroy":
             self.permission_classes = (IsOwner,)
         return super().get_permissions()
+
+    def perform_update(self, serializer):
+        course = serializer.save()
+        course_id = course.pk
+        send_email_about_update.delay(course_id)
 
 
 class LessonCreateAPIView(CreateAPIView):
@@ -77,10 +83,10 @@ class SubscriptionAPIView(APIView):
         subs_item = Subscription.objects.filter(user=user, course=course_item)
         if subs_item.exists():
             subs_item.delete()
-            message = "Подписка добавлена"
+            message = "Подписка отменена"
         else:
             Subscription.objects.create(user=user, course=course_item)
-            message = "Подписка отменена"
+            message = "Подписка добавлена"
         return Response({"message": message})
 
 
